@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Галерея фотографій</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pride Gallery</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:,">
 </head>
 <body>
-    <header>
-        <h1>FOTO IMAGE LIST</h1>
+  <main class="wrap">
+    <header class="hero">
+      <h1 class="hero__title">Pride Gallery</h1>
+      <p class="hero__stats">
+        Фото: <strong id="total">0</strong>
+        &nbsp;·&nbsp;
+        Вподобано: <strong id="likes">0</strong>
+      </p>
     </header>
-    <main>
-        <div id="gallery" class="gallery"></div>
-        <div class="buttons">
-            <button id="loadMore">Завантажити ще 4 картинки</button>
-            <button id="clearGallery">Очистити галерею</button>
-            <button id="removeLast">Видалити останню картинку</button>
-            <button id="reverseGallery">Перевернути галерею</button>
-            <button id="shuffleGallery">Перемішати галерею</button>
-        </div>
-    </main>
-    <script src="script.js"></script>
+
+    <p class="notice" id="notice" hidden></p>
+
+    <ul class="grid" id="grid"></ul>
+  </main>
+
+  <nav class="toolbar">
+    <button class="btn btn--red" id="btnLoad">Завантажити ще 4 картинки</button>
+    <button class="btn btn--orange" id="btnClear">Очистити галерею</button>
+    <button class="btn btn--green" id="btnLast">Видалити останню картинку</button>
+    <button class="btn btn--blue" id="btnFlip">Перевернути галерею</button>
+  </nav>
+
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,1 +1,231 @@
-"Enter your styles here"
+:root {
+  --red: #e40303;
+  --orange: #ff8c00;
+  --yellow: #ffed00;
+  --green: #008026;
+  --blue: #004dff;
+  --purple: #750787;
+  --pride: linear-gradient(
+    90deg,
+    var(--red),
+    var(--orange),
+    var(--yellow),
+    var(--green),
+    var(--blue),
+    var(--purple)
+  );
+  --ink: #0b0b0b;
+  --panel: #161616;
+  --soft: #bdbdbd;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #fff;
+  background: linear-gradient(90deg, #000 50%, #ff9000 50%);
+  background-attachment: fixed;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 10px;
+  background: var(--pride);
+  z-index: 10;
+}
+
+.wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px 120px;
+}
+
+/* ---------- Шапка ---------- */
+
+.hero {
+  max-width: 520px;
+  margin: 0 auto 24px;
+  padding: 22px 28px 26px;
+  text-align: center;
+  background: var(--ink);
+  border-radius: 18px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 6px;
+  background: var(--pride);
+}
+
+.hero__title {
+  font-size: 42px;
+  letter-spacing: 2px;
+  background: var(--pride);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero__stats {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--soft);
+}
+
+.hero__stats strong {
+  color: #fff;
+}
+
+/* ---------- Повідомлення ---------- */
+
+.notice {
+  max-width: 520px;
+  margin: 0 auto 20px;
+  padding: 12px 18px;
+  text-align: center;
+  font-size: 14px;
+  background: var(--ink);
+  border-radius: 12px;
+  color: var(--soft);
+}
+
+.notice--error {
+  color: #ff7b7b;
+}
+
+/* ---------- Сітка фото ---------- */
+
+.grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.photo {
+  background: var(--panel);
+  border-radius: 14px;
+  overflow: hidden;
+  border-top: 5px solid transparent;
+  border-image: var(--pride) 1;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+  transition: transform 0.2s;
+}
+
+.photo:hover {
+  transform: translateY(-5px);
+}
+
+.photo__img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: #2a2a2a;
+}
+
+.photo__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 12px;
+}
+
+.photo__author {
+  flex: 1;
+  min-width: 0;
+  font-size: 14px;
+  color: var(--soft);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.icon-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: #262626;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.icon-btn:hover {
+  transform: scale(1.12);
+}
+
+.icon-btn--like.is-on {
+  background: var(--red);
+}
+
+.icon-btn--remove:hover {
+  background: var(--purple);
+}
+
+/* ---------- Нижня панель кнопок ---------- */
+
+.toolbar {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--ink);
+  border-top: 6px solid transparent;
+  border-image: var(--pride) 1;
+  z-index: 5;
+}
+
+.btn {
+  padding: 11px 20px;
+  border: none;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, filter 0.2s;
+}
+
+.btn--red { background: var(--red); }
+.btn--orange { background: #d96f00; }
+.btn--green { background: var(--green); }
+.btn--blue { background: var(--blue); }
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  filter: brightness(1.2);
+}
+
+.btn:disabled {
+  background: #3a3a3a;
+  color: #8a8a8a;
+  cursor: not-allowed;
+}
+
+@media (max-width: 560px) {
+  .hero__title {
+    font-size: 32px;
+  }
+}
